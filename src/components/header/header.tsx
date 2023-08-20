@@ -7,6 +7,9 @@ import { Logo } from '@/components/logo'
 import { Navigation, AuthNavigation } from '@/components/navigation'
 import { useTheme } from '@mui/material/styles'
 import { Menu, Close } from '@mui/icons-material'
+import { FooterNavigation, FooterSocialLinks } from '@/components/footer'
+
+
 
 const Header: FC = () => {
   const [visibleMenu, setVisibleMenu] = useState<boolean>(false)
@@ -45,7 +48,9 @@ const Header: FC = () => {
           >
             <Box /> {/* Magic space */}
             <Navigation />
-            <AuthNavigation />
+            <FooterSocialLinks />
+
+
             {visibleMenu && matchMobileView && (
               <IconButton
                 sx={{
