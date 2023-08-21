@@ -19,15 +19,15 @@ interface ExpItemProps {
 const exps: Array<Exp> = [
   {
     label: 'Students',
-    value: '10K+',
+    value: '100',
   },
   {
     label: 'Quality Course',
-    value: '20+',
+    value: '10+',
   },
   {
     label: 'Experience Mentors',
-    value: '10+',
+    value: '6+',
   },
 ]
 
@@ -138,7 +138,7 @@ const HomeHero: FC = () => {
               <Box sx={{ mb: 4, width: { xs: '100%', md: '70%' } }}>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
                   {
-                    "Let's take an online course to improve your skills in a different way, you can set your own study time according to your learning speed. So you san study comfortable and absorb tge material easily."
+                    "Welcome to Intilaka, a vibrant association that embraces the power of diverse passions and intellectual connections.Our motto: Where Passions Converge, Minds Ignite, encapsulates our mission to foster creativity, learning, and collaboration.Through our four unique clubs, we offer an exciting platform for individuals to explore coding, theatre, astronomy, and literature."
                   }
                 </Typography>
               </Box>
@@ -148,11 +148,12 @@ const HomeHero: FC = () => {
                     Get Started
                   </StyledButton>
                 </ScrollLink>
-                <ScrollLink to="video-section" spy={true} smooth={true} offset={0} duration={350}>
-                  <StyledButton color="primary" size="large" variant="outlined" startIcon={<PlayArrowIcon />}>
+                {/* <ScrollLink to="video-section" spy={true} smooth={true} offset={0} duration={350}>
+                  <StyledButton color="primary" size="large" variant="outlined" 
+                  startIcon={<PlayArrowIcon />}>
                     Watch Video
                   </StyledButton>
-                </ScrollLink>
+                </ScrollLink> */}
               </Box>
             </Box>
           </Grid>

@@ -3,14 +3,14 @@ import type { Mentor } from '@/interfaces/mentor'
 export const data: Array<Mentor> = [
   {
     id: 1,
-    photo: '/images/mentors/christian-buehner-DItYlc26zVI-unsplash.jpg',
-    name: 'Jhon Dwirian',
-    category: 'UI/UX Design',
+    photo: '/images/mentors/younes.jpg',
+    name: 'YOUNES EL GUERRAOUI ',
+    category: 'software engineer',
     description:
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
-      name: 'Grab',
-      logo: '/images/companies/grab.png',
+      name: 'intilaka',
+      logo: '/images/clubs/logo.png',
     },
   },
   {
