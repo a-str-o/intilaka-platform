@@ -1,9 +1,6 @@
 export interface Course {
-  id: number | string
-  title: string
-  cover: string
-  rating: number
-  ratingCount: number
-  price: number
-  category: string
+  id: number;
+  cover: string;
+  title: string;
+  description: string; 
 }
