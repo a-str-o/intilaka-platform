@@ -5,6 +5,8 @@ import Rating from '@mui/material/Rating'
 import Typography from '@mui/material/Typography'
 import IconButton, { iconButtonClasses } from '@mui/material/IconButton'
 import { Course } from '@/interfaces/course'
+import Link from 'next/link';
+import Button from '@mui/material/Button';
 
 interface Props {
   item: Course
@@ -42,6 +44,7 @@ const CourseCardItem: FC<Props> = ({ item }) => {
             mb: 2,
           }}
         >
+          
           <Image src={item.cover} width={760} height={760} alt={'Course ' + item.id} />
         </Box>
         <Box sx={{ mb: 2 }}>
@@ -53,6 +56,12 @@ const CourseCardItem: FC<Props> = ({ item }) => {
               {item.description}
           </Typography>
           
+          <Link href={`/courses/${item.id}`} passHref>
+            <Button variant="contained" color="primary" >
+              View More
+            </Button>
+          </Link>
+
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Rating name="rating-course" value={5} max={5}
              sx={{ color: '#ffce31', mr: 1 }} readOnly />

@@ -2,33 +2,25 @@ import React, { FC } from 'react'
 import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
 import { SocialLink } from '@/interfaces/social-link'
+import LanguageChangePopup from './LanguageChangePopup.js'; 
+
 
 export const socialLinks: SocialLink[] = [
   {
     name: 'Instagram',
-    link: '#',
+    link: 'https://www.instagram.com/intilaka_marrakech?fbclid=IwAR0VCTN1An8wqsAc_pj584L_gMH1HxLHHTOVTGa13WDrhZhvCtNZJDt6kuo',
     icon: '/images/icons/instagram.svg',
   },
   {
     name: 'YouTube',
-    link: '#',
+    link: 'https://www.youtube.com/@associationintilaka1377',
     icon: '/images/icons/youtube.svg',
   },
   {
     name: 'Twitter',
-    link: '#',
+    link: 'https://web.facebook.com/association.intilaka.marrakech',
     icon: '/images/icons/twitter.svg',
-  },
-  {
-    name: 'Dribbble',
-    link: 'https://dribbble.com/shots/18114471-Coursespace-Online-Course-Landing-Page',
-    icon: '/images/icons/dribbble.svg',
-  },
-  {
-    name: 'Github',
-    link: 'https://github.com/hiriski/coursespace-landing-page',
-    icon: '/images/icons/github.svg',
-  },
+  }
 ]
 
 interface SocialLinkItemProps {
@@ -75,17 +67,22 @@ const SocialLinkItem: FC<SocialLinkItemProps> = ({ item }) => (
 // default
 const SocialLinks: FC = () => {
   return (
-    <Box sx={{ ml: -1 }}>
-      <Box
-        component="ul"
-        sx={{
-          m: 0,
-          p: 0,
-          lineHeight: 0,
-          borderRadius: 3,
-          listStyle: 'none',
-        }}
-      >
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <LanguageChangePopup />
+
+    <Box
+      component="ul"
+      sx={{
+        display: 'flex',
+        m: 0,
+        p: 0,
+        lineHeight: 0,
+        borderRadius: 3,
+        listStyle: 'none',
+        ml: -1, 
+      }}
+    >
+     
         {socialLinks.map((item) => {
           return <SocialLinkItem key={item.name} item={item} />
         })}

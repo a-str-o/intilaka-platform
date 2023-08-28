@@ -10,19 +10,19 @@ export const data: Array<Course> = [
   {
     id: 2,
     cover: '/images/clubs/logos-03.png',
-    title: 'Theatre Club',
+    title: 'PopCorn Theatre Club',
     description:'Step into the spotlight with StellarStage Ensembles. Immerse yourself in the world of drama, storytelling, and expression. From classic plays to original productions, we bring stories to life on the stellar stage.',
   },
   {
     id: 3,
     cover: '/images/clubs/logos-04.png',
-    title: 'Astronomy Club',
+    title: 'Kepler Astro Club',
     description:'Embark on a journey through the cosmos with the CosmicVoyagers Society. Explore the mysteries of the universe, from distant galaxies to celestial events. Join us as we gaze upwards and unlock the secrets of the night sky.',
   },
   {
     id: 4,
     cover: '/images/clubs/logos-06.png',
-    title: 'Book Club',
+    title: 'Gutenberg Club',
     description:'Embark on a literary odyssey with the Literary Odyssey Guild. Delve into the pages of diverse worlds, engage in thoughtful discussions, and share your love for reading. Let the power of words connect us across time and space.',
   },
  

@@ -19,7 +19,7 @@ interface ExpItemProps {
 const exps: Array<Exp> = [
   {
     label: 'Students',
-    value: '100',
+    value: '100+',
   },
   {
     label: 'Quality Course',
@@ -27,7 +27,7 @@ const exps: Array<Exp> = [
   },
   {
     label: 'Experience Mentors',
-    value: '6+',
+    value: '10+',
   },
 ]
 
@@ -130,9 +130,9 @@ const HomeHero: FC = () => {
                         />
                       </g>
                     </svg>
-                  </Typography>{' '}
+                  </Typography>s{' '}
                   <br />
-                  with Different Way
+                  with different Ways
                 </Typography>
               </Box>
               <Box sx={{ mb: 4, width: { xs: '100%', md: '70%' } }}>
