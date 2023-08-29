@@ -15,7 +15,7 @@ i18n.use(LanguageDetector)
       ar: { translation: translationAR },
     },
     fallbackLng: 'en',
-    debug: true, // Set to false in production
+    // debug: true, Set to false in production
   });
 
 export default i18n;
