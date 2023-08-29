@@ -19,6 +19,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/footer/LanguageChangePopupts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/footer/LanguageChangePopupts", "src/pages/LanguageSelectionPopup.tsx", "src/components/footer/LanguageChangePopup.tsx"],
   "exclude": ["node_modules"]
 }

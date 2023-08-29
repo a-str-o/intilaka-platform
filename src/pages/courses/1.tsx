@@ -3,15 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Box, Typography, Grid } from '@mui/material';
 import Image from 'next/image';
 
-const ClubPage = () => {
+const ClubPage: React.FC = (): JSX.Element => { // Specify the return type as JSX.Element
   const [showLanguageButtons, setShowLanguageButtons] = useState(false);
 
   const { t, i18n } = useTranslation(); 
 
-  const changeLanguage = (lng:string) => {
+  const changeLanguage = (lng: string): void => { // Specify the return type as void
     i18n.changeLanguage(lng);
     localStorage.setItem('selectedLanguage', lng);
   };
+
 
   useEffect(() => {
     setShowLanguageButtons(true); // Show the language buttons after component is mounted

@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Box, Modal, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 
-const LanguageSelectionPopup = () => {
+
+const LanguageSelectionPopup: React.FC = (): JSX.Element => { // Specify the return type as JSX.Element
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(true);
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setOpen(false);
   };
 
-  const handleLanguageChange = (languageCode) => {
+  const handleLanguageChange = (languageCode:string) : void => {
     i18n.changeLanguage(languageCode);
     localStorage.setItem('selectedLanguage', languageCode);
     handleClose();
@@ -36,7 +37,7 @@ const LanguageSelectionPopup = () => {
             onClick={() => handleLanguageChange(language.code)}
           >
             <ListItemIcon>
-                    <img
+                  <img
                   src={language.flag}
                   alt={language.label + ' flag'}
                   style={{ width: '24px', height: 'auto' }} 

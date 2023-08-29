@@ -2,71 +2,75 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Popover, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 
-const LanguageChangePopup = () => {
+interface Language {
+  code: string;
+  label: string;
+  flag: string;
+}
+
+const LanguageChangePopup: React.FC = () => {
   const { i18n } = useTranslation();
 
-  const availableLanguages = [
+  const availableLanguages: Language[] = [
     { code: 'ar', label: 'العربية', flag: '/images/flags/ar.png' },
     { code: 'en', label: 'English', flag: '/images/flags/en.png' },
     { code: 'fr', label: 'Français', flag: '/images/flags/fr.png' },
-    
   ];
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const handleLanguageClick = (event) => {
+  const handleLanguageClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleLanguageChange = (code) => {
+  const handleLanguageChange = (code: string): void => {
     i18n.changeLanguage(code);
     localStorage.setItem('selectedLanguage', code);
     setAnchorEl(null);
   };
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setAnchorEl(null);
   };
 
   return (
     <Box>
       <Button onClick={handleLanguageClick}>
-        {/* Add your language change icon here */}
         <img
-                  src={'/images/flags/icon.jpg'}
-                  alt={' flag'}
-                  style={{ width: '24px', height: 'auto' }} 
-                />
+          src={'/images/flags/icon.jpg'}
+          alt={'flag'}
+          style={{ width: '24px', height: 'auto' }}
+        />
       </Button>
       <Popover
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom', // Position the pop-up at the bottom
-          horizontal: 'center', // Center the pop-up horizontally
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-          vertical: 'top', // Position the pop-up content at the top
-          horizontal: 'center', // Center the pop-up content horizontally
+          vertical: 'top',
+          horizontal: 'center',
         }}
       >
         <Box sx={{ p: 2 }}>
           {availableLanguages.map((language) => (
             <ListItem
-            key={language.code}
-            button
-            onClick={() => handleLanguageChange(language.code)}
-          >
-            <ListItemIcon>
-                    <img
+              key={language.code}
+              button
+              onClick={() => handleLanguageChange(language.code)}
+            >
+              <ListItemIcon>
+                <img
                   src={language.flag}
                   alt={language.label + ' flag'}
-                  style={{ width: '24px', height: 'auto' }} 
+                  style={{ width: '24px', height: 'auto' }}
                 />
-            </ListItemIcon>
-            <ListItemText primary={language.label} />
-          </ListItem>
+              </ListItemIcon>
+              <ListItemText primary={language.label} />
+            </ListItem>
           ))}
         </Box>
       </Popover>

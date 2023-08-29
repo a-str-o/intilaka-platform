@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
 import { SocialLink } from '@/interfaces/social-link'
-import LanguageChangePopup from './LanguageChangePopup.js'; 
+import LanguageChangePopup from './LanguageChangePopup'; 
 
 
 export const socialLinks: SocialLink[] = [
