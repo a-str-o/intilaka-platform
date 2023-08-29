@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 import { Box, Button, Popover, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 
 interface Language {
@@ -9,7 +9,6 @@ interface Language {
 }
 
 const LanguageChangePopup: React.FC = () => {
-  const { i18n } = useTranslation();
 
   const availableLanguages: Language[] = [
     { code: 'ar', label: 'العربية', flag: '/images/flags/ar.png' },
