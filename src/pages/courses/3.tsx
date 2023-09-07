@@ -1,38 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Box, Typography, Grid } from '@mui/material';
+import React from 'react';
+import { Box, Typography, Grid, Button } from '@mui/material'; // Import the Button component
 import Image from 'next/image';
+// import { useTranslation } from "next-i18next";
 
-const ClubPage: React.FC = (): JSX.Element => { // Specify the return type as JSX.Element
-  const [showLanguageButtons, setShowLanguageButtons] = useState(false);
-
-  const { t, i18n } = useTranslation(); 
-
-  const changeLanguage = (lng: string): void => { // Specify the return type as void
-    i18n.changeLanguage(lng);
-    localStorage.setItem('selectedLanguage', lng);
-  };
-
-
-  useEffect(() => {
-    setShowLanguageButtons(true); // Show the language buttons after component is mounted
-  }, []);
+const ClubPage: React.FC = (): JSX.Element => {
+  // const { t } = useTranslation();
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" p={4}>
       <Image src="/images/clubs/logos-05.png" width={180} height={180} alt="Club Logo" />
       <Typography variant="h4" mt={4} mb={1}>
-        Coding Club {t('welcome')}
+      {/* {t('hello')} */}
       </Typography>
       <Typography variant="body1">{/* Your content */}</Typography>
-
-      {showLanguageButtons && (
-        <div>
-          <button onClick={() => changeLanguage('en')}>English</button>
-          <button onClick={() => changeLanguage('fr')}>Français</button>
-          <button onClick={() => changeLanguage('ar')}>العربية</button>
-        </div>
-      )}
 
       <Box mt={3}>
         <Grid container spacing={4}>
@@ -47,5 +27,6 @@ const ClubPage: React.FC = (): JSX.Element => { // Specify the return type as JS
     </Box>
   );
 };
+
 
 export default ClubPage;

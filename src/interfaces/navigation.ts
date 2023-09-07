@@ -1,4 +1,4 @@
 export interface Navigation {
-  label: string
   path: string
+  label:string
 }

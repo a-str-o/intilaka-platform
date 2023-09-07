@@ -1,12 +1,31 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react';
 import Box from '@mui/material/Box'
 import { Link as ScrollLink } from 'react-scroll'
 import { navigations } from './navigation.data'
 
 const Navigation: FC = () => {
+
+  const [en, setEn] = useState("en");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async(): Promise<void> => {
+      try {
+        const selectedLanguage = localStorage.getItem('selectedLanguage')
+        if (selectedLanguage) 
+          setEn(selectedLanguage)
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [en]);
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
-      {navigations.map(({ path: destination, label }) => (
+      {navigations.map(({ path: destination, translations }) => (
         <Box
           component={ScrollLink}
           key={destination}
@@ -53,10 +72,11 @@ const Navigation: FC = () => {
             {/* eslint-disable-next-line */}
             <img src="/images/headline-curve.svg" alt="Headline curve" />
           </Box>
-          {label}
+          {en === 'en' ? translations.en : (en === 'fr' ? translations.fr : translations.ar)}
         </Box>
       ))}
     </Box>
+
   )
 }
 

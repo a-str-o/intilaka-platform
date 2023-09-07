@@ -1,5 +1,4 @@
 import React from 'react';
-import i18n from 'i18next';
 import { Box, Button, Popover, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 
 interface Language {
@@ -23,8 +22,8 @@ const LanguageChangePopup: React.FC = () => {
   };
 
   const handleLanguageChange = (code: string): void => {
-    i18n.changeLanguage(code);
     localStorage.setItem('selectedLanguage', code);
+    window.location.reload();
     setAnchorEl(null);
   };
 

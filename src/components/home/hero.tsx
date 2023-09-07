@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -6,7 +6,8 @@ import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
 import { StyledButton } from '@/components/styled-button'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import axios from 'axios';
+
 
 interface Exp {
   label: string
@@ -46,10 +47,53 @@ const ExpItem: FC<ExpItemProps> = ({ item }) => {
     </Box>
   )
 }
+interface LanguageData {
+  titleCoding: string;
+  descriptionCoding: string;
+  titlePopCorn: string;
+  descriptionPopCorn: string;
+  titleKepler: string;
+  descriptionKepler: string;
+  titleGutenberg: string;
+  descriptionGutenberg: string;
+  intilaka: string;
+  Certificate: string;
+  Certificate2: string;
+}
+
 
 const HomeHero: FC = () => {
+  const [languageData, setLanguageData] = useState<LanguageData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [en, setEn] = useState("en");
+
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      try {
+        const selectedLanguage = localStorage.getItem('selectedLanguage')
+        if (selectedLanguage) 
+          setEn(selectedLanguage)
+        const response = await axios.get(`/api/data2?lang=${en}`);
+        setLanguageData(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [en]);
   return (
     <Box id="hero" sx={{ backgroundColor: 'background.paper', position: 'relative', pt: 4, pb: { xs: 8, md: 10 } }}>
+      <Container maxWidth="lg">
+        {loading ? (
+          // Loading animation or message
+          // <LoadingAnimation />
+          <h1>loading</h1>
+        ) : (
+        
+        <Box id="hero" sx={{ backgroundColor: 'background.paper', position: 'relative', pt: 4, pb: { xs: 8, md: 10 } }}>
       <Container maxWidth="lg">
         <Grid container spacing={0} sx={{ flexDirection: { xs: 'column', md: 'unset' } }}>
           <Grid item xs={12} md={7}>
@@ -136,11 +180,14 @@ const HomeHero: FC = () => {
                 </Typography>
               </Box>
               <Box sx={{ mb: 4, width: { xs: '100%', md: '70%' } }}>
-                <Typography sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                  {
-                    "Welcome to Intilaka, a vibrant association that embraces the power of diverse passions and intellectual connections.Our motto: Where Passions Converge, Minds Ignite, encapsulates our mission to foster creativity, learning, and collaboration.Through our four unique clubs, we offer an exciting platform for individuals to explore coding, theatre, astronomy, and literature."
-                  }
-                </Typography>
+                 {languageData ? (
+                          <Typography sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
+                              {languageData.intilaka}
+                          </Typography>
+                        ) : 
+                  (
+                  <div>Loading...</div>
+                  )}
               </Box>
               <Box sx={{ '& button': { mr: 2 } }}>
                 <ScrollLink to="popular-course" spy={true} smooth={true} offset={0} duration={350}>
@@ -190,17 +237,27 @@ const HomeHero: FC = () => {
               >
                 <Image src="/images/certificate.png" alt="Certificate icon" width={50} height={50} quality={97} />
               </Box>
-              <Box>
-                <Typography
-                  component="h6"
-                  sx={{ color: 'secondary.main', fontSize: '1.1rem', fontWeight: 700, mb: 0.5 }}
-                >
-                  Certificate
-                </Typography>
-                <Typography variant="subtitle1" sx={{ color: 'text.secondary', lineHeight: 1.3 }}>
-                  There are certificates for all courses.
-                </Typography>
-              </Box>
+             
+              {languageData ? ( 
+                        <Box>
+                          <Typography
+                            component="h6"
+                            sx={{ color: 'secondary.main', fontSize: '1.1rem', fontWeight: 700, mb: 0.5 }}
+                          >
+                            {languageData.Certificate}
+                          </Typography>
+                          <Typography variant="subtitle1" sx={{ color: 'text.secondary', lineHeight: 1.3 }}>
+                          {languageData.Certificate2}
+                          </Typography>
+                        </Box>
+                          
+                        ) : 
+                  (
+                  <div>Loading...</div>
+                  )}
+
+
+                
             </Box>
             <Box sx={{ lineHeight: 0 }}>
               <Image src="/images/home-hero.jpg" width={800} height={800} alt="Hero img" />
@@ -220,6 +277,9 @@ const HomeHero: FC = () => {
         </Box>
       </Container>
     </Box>
+     )}
+     </Container>
+   </Box>
   )
 }
 
