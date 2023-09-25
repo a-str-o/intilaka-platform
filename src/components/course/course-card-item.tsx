@@ -56,11 +56,11 @@ const CourseCardItem: FC<Props> = ({ item }) => {
               {item.description}
           </Typography>
           
-          <Link href={`/courses/${item.id}`} passHref>
-            <Button variant="contained" color="primary" >
+          {/* <Link href={`/courses/${item.id}`} passHref >
+            <Button variant="contained" color="primary"  sx={{ mb: 2, height: 30, marginTop:'10px',fontSize: '1rem' }}>
               View More
             </Button>
-          </Link>
+          </Link> */}
 
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Rating name="rating-course" value={5} max={5}

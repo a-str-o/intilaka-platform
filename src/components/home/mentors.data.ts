@@ -4,8 +4,8 @@ export const data: Array<Mentor> = [
   {
     id: 1,
     photo: '/images/mentors/younes.jpg',
-    name: 'YOUNES EL GUERRAOUI ',
-    category: 'software engineer',
+    name: 'Younes El GUERRAOUI',
+    category: 'Coding Club',
     description:
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
@@ -15,9 +15,9 @@ export const data: Array<Mentor> = [
   },
   {
     id: 2,
-    photo: '/images/mentors/jonas-kakaroto-KIPqvvTOC1s-unsplash.jpg',
-    name: 'Leon S Kennedy',
-    category: 'Machine Learning',
+    photo: '/images/mentors/karim.jpg',
+    name: 'Karim AIT BENSAID',
+    category: 'Kepler Astro Club',
     description:
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
@@ -27,9 +27,9 @@ export const data: Array<Mentor> = [
   },
   {
     id: 3,
-    photo: '/images/mentors/noah-buscher-8A7fD6Y5VF8-unsplash.jpg',
-    name: 'Nguyễn Thuy',
-    category: 'Android Development',
+    photo: '/images/mentors/oussama.jpg',
+    name: 'Oussama BOUFARRA',
+    category: 'Gutenberg Club',
     description:
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
@@ -39,9 +39,9 @@ export const data: Array<Mentor> = [
   },
   {
     id: 4,
-    photo: '/images/mentors/philip-martin-5aGUyCW_PJw-unsplash.jpg',
-    name: 'Rizki Known',
-    category: 'Fullstack Development',
+    photo: '/images/mentors/omar.jpg',
+    name: 'Omar CHANA',
+    category: 'PopCorn Club',
     description:
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {

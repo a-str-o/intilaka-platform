@@ -10,12 +10,39 @@ import IconArrowBack from '@mui/icons-material/ArrowBack'
 import IconArrowForward from '@mui/icons-material/ArrowForward'
 import { MentorCardItem } from '@/components/mentor'
 import { data } from './mentors.data'
+import ImageCarousel from './ImageCarousel'; 
 
 interface SliderArrowArrow {
   onClick?: () => void
   type: 'next' | 'prev'
   className?: 'string'
 }
+const imageUrls = [
+  '/images/images/00.jpg',
+  '/images/images/10.jpg',
+  '/images/images/12.jpg',
+  '/images/images/13.jpg',
+  '/images/images/14.jpg',
+  '/images/images/15.jpg',
+  '/images/images/18.jpg',
+  '/images/images/19.jpg',
+  '/images/images/22.jpg',
+  '/images/images/24.jpg',
+  '/images/images/33.jpg',
+  '/images/images/39.jpg',
+  '/images/images/40.jpg',
+  '/images/images/42.jpg',
+  '/images/images/44.jpg',
+  '/images/images/55.jpg',
+  '/images/images/56.jpg',
+  '/images/images/60.jpg',
+  '/images/images/62.jpg',
+  '/images/images/65.jpg',
+  '/images/images/66.jpg',
+  '/images/images/70.jpg',
+  '/images/images/77.jpg',
+
+];
 
 const SliderArrow: FC<SliderArrowArrow> = (props) => {
   const { onClick, type, className } = props
@@ -101,6 +128,8 @@ const HomeOurMentors: FC = () => {
             <MentorCardItem key={String(item.id)} item={item} />
           ))}
         </Slider>
+        <ImageCarousel images={imageUrls} />
+
       </Container>
     </Box>
   )

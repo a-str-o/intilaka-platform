@@ -50,15 +50,6 @@ export const navigations: NavigationWithTranslations[] = [
     },
   },
   {
-    label:'Testimonial',
-    path: 'testimonial',
-    translations: {
-      ar: arTranslations.Testimonial,
-      fr: frTranslations.Testimonial,
-      en: enTranslations.Testimonial,
-    },
-  },
-  {
     label:'Mentor',
     path: 'mentors',
     translations: {

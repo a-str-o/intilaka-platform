@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react';
+
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Slider, { Settings } from 'react-slick'
@@ -8,8 +9,7 @@ import { useTheme, styled } from '@mui/material/styles'
 import { IconButton, useMediaQuery } from '@mui/material'
 import IconArrowBack from '@mui/icons-material/ArrowBack'
 import IconArrowForward from '@mui/icons-material/ArrowForward'
-
-import { data } from './popular-course.data'
+import axios from 'axios';
 import { CourseCardItem } from '@/components/course'
 
 interface SliderArrowArrow {
@@ -17,6 +17,11 @@ interface SliderArrowArrow {
   type: 'next' | 'prev'
   className?: 'string'
 }
+interface LanguageData {
+  intilaka: string;
+  data:any
+}
+
 
 const SliderArrow: FC<SliderArrowArrow> = (props) => {
   const { onClick, type, className } = props
@@ -61,6 +66,27 @@ const StyledDots = styled('ul')(({ theme }) => ({
 const HomePopularCourse: FC = () => {
   const { breakpoints } = useTheme()
   const matchMobileView = useMediaQuery(breakpoints.down('md'))
+  const [languageData, setLanguageData] = useState<LanguageData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [en, setEn] = useState("en");
+
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      try {
+        const selectedLanguage = localStorage.getItem('selectedLanguage')
+        if (selectedLanguage) 
+          setEn(selectedLanguage)
+        const response = await axios.get(`/api/data3?lang=${en}`);
+        setLanguageData(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [en]);
 
   const sliderConfig: Settings = {
     infinite: true,
@@ -90,6 +116,7 @@ const HomePopularCourse: FC = () => {
       }}
     >
       <Container maxWidth="lg">
+       {languageData ? ( 
         <Grid container spacing={2}>
           <Grid item xs={12} md={3}>
             <Box
@@ -101,20 +128,24 @@ const HomePopularCourse: FC = () => {
                 justifyContent: { xs: 'center', md: 'flex-start' },
               }}
             >
-              <Typography variant="h1" sx={{ mt: { xs: 0, md: -5 }, fontSize: { xs: 30, md: 48 } }}>
-                INTILAKA CLUBS
-              </Typography>
+            <Typography variant="h1" sx={{ mt: { xs: 0, md: -5 }, fontSize: { xs: 30, md: 48 } }}>
+              {languageData.intilaka}
+            </Typography>
             </Box>
           </Grid>
 
           <Grid item xs={12} md={9}>
             <Slider {...sliderConfig}>
-              {data.map((item) => (
+              {languageData && languageData.data.map((item:any) => (
                 <CourseCardItem key={String(item.id)} item={item} />
               ))}
             </Slider>
           </Grid>
-        </Grid>
+        </Grid> 
+        ) : 
+        (
+        <div>Loading...</div>
+        )}
       </Container>
     </Box>
   )

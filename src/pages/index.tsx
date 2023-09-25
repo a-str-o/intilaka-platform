@@ -18,8 +18,8 @@ const Home: NextPageWithLayout = () => {
     <>
       <DynamicHomeHero />
       <DynamicHomePopularCourse />
-      <DynamicHomeFeature />
-      <DynamicHomeTestimonial />
+      {/* <DynamicHomeFeature /> */}
+      {/* <DynamicHomeTestimonial /> */}
       <DynamicHomeOurMentors />
       <DynamicHomeNewsLetter />
     </>

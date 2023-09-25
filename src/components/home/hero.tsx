@@ -17,20 +17,6 @@ interface ExpItemProps {
   item: Exp
 }
 
-const exps: Array<Exp> = [
-  {
-    label: 'Students',
-    value: '100+',
-  },
-  {
-    label: 'Quality Course',
-    value: '10+',
-  },
-  {
-    label: 'Experience Mentors',
-    value: '10+',
-  },
-]
 
 const ExpItem: FC<ExpItemProps> = ({ item }) => {
   const { value, label } = item
@@ -59,6 +45,8 @@ interface LanguageData {
   intilaka: string;
   Certificate: string;
   Certificate2: string;
+  Started: string;
+  exp:any;
 }
 
 
@@ -84,6 +72,12 @@ const HomeHero: FC = () => {
 
     fetchData();
   }, [en]);
+  const whatsappGroupLink = 'https://chat.whatsapp.com/GaIdZ4lvaYkBsVAnXOImT6';
+
+  const handleButtonClick = () : void => {
+    window.open(whatsappGroupLink, '_blank');
+  };
+
   return (
     <Box id="hero" sx={{ backgroundColor: 'background.paper', position: 'relative', pt: 4, pb: { xs: 8, md: 10 } }}>
       <Container maxWidth="lg">
@@ -157,7 +151,7 @@ const HomeHero: FC = () => {
                       },
                     }}
                   >
-                    Skill
+                    skill
                     <svg version="1.1" viewBox="0 0 3183 3072">
                       <g id="Layer_x0020_1">
                         <path
@@ -176,7 +170,7 @@ const HomeHero: FC = () => {
                     </svg>
                   </Typography>s{' '}
                   <br />
-                  with different Ways
+                  in different ways
                 </Typography>
               </Box>
               <Box sx={{ mb: 4, width: { xs: '100%', md: '70%' } }}>
@@ -189,18 +183,24 @@ const HomeHero: FC = () => {
                   <div>Loading...</div>
                   )}
               </Box>
+         
               <Box sx={{ '& button': { mr: 2 } }}>
-                <ScrollLink to="popular-course" spy={true} smooth={true} offset={0} duration={350}>
-                  <StyledButton color="primary" size="large" variant="contained">
-                    Get Started
+              {languageData ? (
+                
+                  <ScrollLink to="newsletter" spy={true} smooth={true} offset={0} duration={350}>
+                    <StyledButton color="primary" size="large" variant="contained">
+                      {languageData.Started}
+                    </StyledButton>
+                  </ScrollLink>
+              ) : 
+                  (
+                  <div>Loading...</div>
+            )}
+
+              
+                  <StyledButton onClick={handleButtonClick} color="primary" size="large" variant="outlined">
+                    Join WhatsApp Group
                   </StyledButton>
-                </ScrollLink>
-                {/* <ScrollLink to="video-section" spy={true} smooth={true} offset={0} duration={350}>
-                  <StyledButton color="primary" size="large" variant="outlined" 
-                  startIcon={<PlayArrowIcon />}>
-                    Watch Video
-                  </StyledButton>
-                </ScrollLink> */}
               </Box>
             </Box>
           </Grid>
@@ -260,21 +260,36 @@ const HomeHero: FC = () => {
                 
             </Box>
             <Box sx={{ lineHeight: 0 }}>
-              <Image src="/images/home-hero.jpg" width={800} height={800} alt="Hero img" />
+              <Image src="/images/home-hero.png" width={800} height={800} alt="Hero img" />
             </Box>
           </Grid>
         </Grid>
 
+       
+
         {/* Experience */}
         <Box sx={{ boxShadow: 2, py: 4, px: 7, borderRadius: 4 }}>
-          <Grid container spacing={2}>
-            {exps.map((item) => (
-              <Grid key={item.value} item xs={12} md={4}>
-                <ExpItem item={item} />
+       
+          {languageData ? (
+             <Grid container spacing={2}>
+                {languageData.exp.map((item:any) => (
+                  <Grid key={item.value} item xs={12} md={4}>
+                    <ExpItem item={item} />
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
+              ) : 
+                  (
+                  <div>Loading...</div>
+            )}
+          
+            
+
+
+         
         </Box>
+
+        
       </Container>
     </Box>
      )}
