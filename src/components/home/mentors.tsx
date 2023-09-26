@@ -18,31 +18,26 @@ interface SliderArrowArrow {
   className?: 'string'
 }
 const imageUrls = [
-  '/images/images/00.jpg',
-  '/images/images/10.jpg',
-  '/images/images/12.jpg',
-  '/images/images/13.jpg',
-  '/images/images/14.jpg',
-  '/images/images/15.jpg',
-  '/images/images/18.jpg',
-  '/images/images/19.jpg',
-  '/images/images/22.jpg',
-  '/images/images/24.jpg',
-  '/images/images/33.jpg',
-  '/images/images/39.jpg',
-  '/images/images/40.jpg',
-  '/images/images/42.jpg',
-  '/images/images/44.jpg',
-  '/images/images/55.jpg',
-  '/images/images/56.jpg',
-  '/images/images/60.jpg',
-  '/images/images/62.jpg',
-  '/images/images/65.jpg',
-  '/images/images/66.jpg',
-  '/images/images/70.jpg',
-  '/images/images/77.jpg',
-
+  '/images/images/Am-02.png',
+  '/images/images/Am-03.png',
+  '/images/images/Am-04.png',
+  '/images/images/Am-05.png',
+  '/images/images/Am-06.png',
+  '/images/images/Am-07.png',
+  '/images/images/Am-08.png',
+  '/images/images/Am-09.png',
+  '/images/images/Am-10.png',
+  '/images/images/Am-11.png',
+  '/images/images/Am-12.png',
+  '/images/images/Am-13.png',
+  '/images/images/Am-14.png',
+  '/images/images/Am-15.png',
+  '/images/images/Am-16.png',
+  '/images/images/Am-17.png',
+  '/images/images/Am-18.png',
+  '/images/images/Am-19.png',
 ];
+
 
 const SliderArrow: FC<SliderArrowArrow> = (props) => {
   const { onClick, type, className } = props
