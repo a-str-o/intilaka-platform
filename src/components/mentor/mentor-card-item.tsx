@@ -49,7 +49,10 @@ const MentorCardItem: FC<Props> = ({ item }) => {
           <Typography component="h2" variant="h4" sx={{ fontSize: '1.4rem' }}>
             {item.name}
           </Typography>
-          <Typography sx={{ mb: 2, color: 'text.secondary' }}>{item.category}</Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <img src={item.company?.logo} alt={item.company?.name + ' logo'} style={{ height: 40, verticalAlign: 'middle' }} />
+            <Typography sx={{ ml: 1, color: 'text.secondary' }}>{item.category}</Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

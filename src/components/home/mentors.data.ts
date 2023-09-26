@@ -10,7 +10,7 @@ export const data: Array<Mentor> = [
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
       name: 'intilaka',
-      logo: '/images/clubs/logo.png',
+      logo: '/images/clubs/logos-05.png',
     },
   },
   {
@@ -22,7 +22,7 @@ export const data: Array<Mentor> = [
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
       name: 'Google',
-      logo: '/images/companies/google.png',
+      logo: '/images/clubs/logos-04.png',
     },
   },
   {
@@ -34,7 +34,7 @@ export const data: Array<Mentor> = [
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
       name: 'Airbnb',
-      logo: '/images/companies/airbnb.png',
+      logo: '/images/clubs/logos-06.png',
     },
   },
   {
@@ -46,7 +46,7 @@ export const data: Array<Mentor> = [
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     company: {
       name: 'Microsoft',
-      logo: '/images/companies/microsoft.png',
+      logo: '/images/clubs/logos-03.png',
     },
   },
 ]

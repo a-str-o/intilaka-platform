@@ -172,12 +172,13 @@ interface FormDialogProps {
               mx: 'auto',
             }}
           >
-        <Button variant="contained" type="submit" color="primary">
+       <Button variant="contained" type="submit" color="primary" sx={{ margin: '10px' }}>
         {translation.formSubmitButton}
-        </Button>
-        <Button variant="contained" onClick={handleClose} color="primary">
+      </Button>
+      <Button variant="contained" onClick={handleClose} color="primary" sx={{ margin: '10px' }}>
         {translation.formCancelButton}
-        </Button>
+      </Button>
+
         </Box>
       </form>
     </Container>
